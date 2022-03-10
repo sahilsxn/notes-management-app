@@ -44,7 +44,6 @@ const NoteBook = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-
         runValidations()
 
         if (Object.keys(errors).length === 0) {
@@ -61,25 +60,14 @@ const NoteBook = (props) => {
             })
             .then((response)=>{
                 console.log(response.data)
+                const result = response.data
+                setNotesList([result, ...notesList])
             })
             .catch((err)=>{
                 alert(err)
             });
             setTitle('')
             setBody('');
-            axios.get('https://dct-user-auth.herokuapp.com/api/notes', {
-                headers: {
-                    'x-auth': localStorage.getItem('token')
-                }
-            })
-            .then((response)=>{
-                console.log(response.data)
-                const result = response.data
-                setNotesList(result)
-            })
-            .catch((err)=>{
-                console.log(err)
-            })
         } else {
             setFormErrors(errors)
         }
