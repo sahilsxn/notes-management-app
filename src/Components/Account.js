@@ -5,7 +5,7 @@ const Account = (props) => {
     const [user, setUser] = useState({})
 
     useEffect(()=>{
-        axios.get('http://dct-user-auth.herokuapp.com/users/account',{
+        axios.get('https://dct-user-auth.herokuapp.com/users/account',{
             headers: {
                 'x-auth': localStorage.getItem('token')
             }

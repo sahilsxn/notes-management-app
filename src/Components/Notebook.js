@@ -19,7 +19,7 @@ const NoteBook = (props) => {
     }
 
     useEffect(()=>{
-        axios.get('http://dct-user-auth.herokuapp.com/api/notes', {
+        axios.get('https://dct-user-auth.herokuapp.com/api/notes', {
             headers: {
                 'x-auth': localStorage.getItem('token')
             }
@@ -54,7 +54,7 @@ const NoteBook = (props) => {
                 body:body
             }
             console.log(formData)
-            axios.post('http://dct-user-auth.herokuapp.com/api/notes', formData, {
+            axios.post('https://dct-user-auth.herokuapp.com/api/notes', formData, {
                 headers: {
                     'x-auth': localStorage.getItem('token')
                 }
@@ -67,7 +67,7 @@ const NoteBook = (props) => {
             });
             setTitle('')
             setBody('');
-            axios.get('http://dct-user-auth.herokuapp.com/api/notes', {
+            axios.get('https://dct-user-auth.herokuapp.com/api/notes', {
                 headers: {
                     'x-auth': localStorage.getItem('token')
                 }

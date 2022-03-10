@@ -9,7 +9,7 @@ const NotesItem = (props) => {
     const handleDelete = () => {
         const confirmRemove = window.confirm('Are you sure?')
         if(confirmRemove){
-            axios.delete(`http://dct-user-auth.herokuapp.com/api/notes/${noteId}`,{
+            axios.delete(`https://dct-user-auth.herokuapp.com/api/notes/${noteId}`,{
                 headers: {
                     'x-auth': localStorage.getItem('token')
                 }
@@ -27,7 +27,7 @@ const NotesItem = (props) => {
 
 
     const handleTitleClick = () => {
-        axios.get(`http://dct-user-auth.herokuapp.com/api/notes/${noteId}`,{
+        axios.get(`https://dct-user-auth.herokuapp.com/api/notes/${noteId}`,{
             headers: {
                 'x-auth': localStorage.getItem('token')
             }
