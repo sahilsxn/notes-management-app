@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, Route, withRouter } from "react-router-dom";
+import PrivateRoute from '../helpers/PrivateRoute';
 import Home from "./Home";
 import Register from "./Register";
 import Login from "./Login";
@@ -37,7 +38,7 @@ const NavBar = (props) => {
         <Route path="/login" render={(props)=>{
             return <Login {...props} handleAuth={handleAuth} />
         }}/>
-        <Route path="/account" component={Account} exact/>
+         <PrivateRoute path="/account" component={Account} /> 
         </div>
     )
 }

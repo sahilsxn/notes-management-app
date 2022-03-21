@@ -1,7 +1,7 @@
 import {React, useState, useEffect} from "react";
 import NoteForm from './NoteForm'
 import NotesList from './NotesList'
-import axios from "axios";
+import axios from '../config/axios';
 
 const NoteBook = (props) => {
 
@@ -19,15 +19,17 @@ const NoteBook = (props) => {
     }
 
     useEffect(()=>{
-        axios.get('https://dct-user-auth.herokuapp.com/api/notes', {
+        axios.get('/api/notes', {
             headers: {
                 'x-auth': localStorage.getItem('token')
             }
         })
         .then((response)=>{
-            console.log(response.data)
             const result = response.data
-            setNotesList(result)
+            const newArr = [...result]
+            const data = newArr.reverse()
+            setNotesList(data)
+            console.log(newArr)
         })
         .catch((err)=>{
             console.log(err)
@@ -53,7 +55,7 @@ const NoteBook = (props) => {
                 body:body
             }
             console.log(formData)
-            axios.post('https://dct-user-auth.herokuapp.com/api/notes', formData, {
+            axios.post('/api/notes', formData, {
                 headers: {
                     'x-auth': localStorage.getItem('token')
                 }

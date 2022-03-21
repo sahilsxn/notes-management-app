@@ -1,11 +1,11 @@
 import {React, useState, useEffect} from "react";
-import axios from "axios";
+import axios from "../config/axios";
 
 const Account = (props) => {
     const [user, setUser] = useState({})
 
     useEffect(()=>{
-        axios.get('https://dct-user-auth.herokuapp.com/users/account',{
+        axios.get('/users/account',{
             headers: {
                 'x-auth': localStorage.getItem('token')
             }

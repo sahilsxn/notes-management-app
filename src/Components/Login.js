@@ -1,6 +1,6 @@
 import {React, useState} from "react";
 import validator from 'validator';
-import axios from 'axios'
+import axios from '../config/axios'
 
 const Login = (props) => {
     
@@ -22,7 +22,7 @@ const Login = (props) => {
     }
 
     const handleSubmit = (e) => {
-        
+         
         e.preventDefault()
         
         runValidations()
@@ -33,7 +33,7 @@ const Login = (props) => {
                 email: email,
                 password: password
             }
-            axios.post("https://dct-user-auth.herokuapp.com/users/login", formData)
+            axios.post("/users/login", formData)
             .then((response)=>{
                 const result = response.data
                 if(result.hasOwnProperty('errors')) {
@@ -62,6 +62,10 @@ const Login = (props) => {
         }
     }
 
+    const handleCopy = (e) => {
+        navigator.clipboard.writeText(e.target.value)
+    }
+
     return (
         <div>
             <h2>Login</h2>
@@ -83,6 +87,10 @@ const Login = (props) => {
                     /> {formErrors.password && <span>{formErrors.password}</span>} <br/>
                 <input type="submit"/>
             </form>
+            <h3>Credentials</h3>
+            <p>Email - dct6543@gmail.com <button value="dct6543@gmail.com" onClick={handleCopy}>Copy</button></p>
+            
+            <p>secret123</p>
         </div>
     )
 }

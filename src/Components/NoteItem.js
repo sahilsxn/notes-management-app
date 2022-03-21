@@ -1,5 +1,5 @@
 import {React} from 'react'
-import axios from 'axios'
+import axios from '../config/axios'
 import Swal from 'sweetalert2'
 
 const NotesItem = (props) => {
@@ -9,7 +9,7 @@ const NotesItem = (props) => {
     const handleDelete = () => {
         const confirmRemove = window.confirm('Are you sure?')
         if(confirmRemove){
-            axios.delete(`https://dct-user-auth.herokuapp.com/api/notes/${noteId}`,{
+            axios.delete(`/api/notes/${noteId}`,{
                 headers: {
                     'x-auth': localStorage.getItem('token')
                 }

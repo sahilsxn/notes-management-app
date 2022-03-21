@@ -1,5 +1,5 @@
 import {React, useState} from "react";
-import axios from 'axios'
+import axios from '../config/axios'
 import validator from 'validator';
 
 const Register = (props) => {
@@ -41,7 +41,7 @@ const Register = (props) => {
             
             // console.log(formData)
 
-            axios.post('https://dct-user-auth.herokuapp.com/users/register', formData)
+            axios.post('/users/register', formData)
             .then((response)=>{
                 const result = response.data
                 if (result.hasOwnProperty('errors')){
