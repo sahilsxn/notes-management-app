@@ -6,6 +6,7 @@
     .Register-form {
         width: 100%;
         position: absolute;
+        margin: 16px;
         margin-top: 32px
     }
   }
