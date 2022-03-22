@@ -5,6 +5,7 @@ import Home from "./Home";
 import Register from "./Register";
 import Login from "./Login";
 import Account from "./Account";
+import '../App.css'
 
 const NavBar = (props) => {
 
@@ -12,12 +13,13 @@ const NavBar = (props) => {
 
     return (
         <div>
-        <ul>
-            <li><Link to="/">Home</Link></li>
+        <div>
+        <ul class="nav justify-content-start">
+            <li class="nav-item"><Link class="nav-link" to="/">Home</Link></li>
             {userLoggeIn ? (
                 <>
-                    <li><Link to="/account">Account</Link></li>
-                    <li><Link to="/" onClick={()=>{
+                    <li class="nav-item"><Link class="nav-link" to="/account">Account</Link></li>
+                    <li class="nav-item"><Link class="nav-link" to="/" onClick={()=>{
                         localStorage.removeItem('token')
                         handleAuth()
                         alert('Successfully Logged Out')
@@ -26,11 +28,12 @@ const NavBar = (props) => {
                 </>
             ): (
                 <>
-                    <li><Link to="/register">Register</Link></li>
-                    <li><Link to="/login">Login</Link></li>
+                    <li class="nav-item"><Link class="nav-link" to="/register">Register</Link></li>
+                    <li class="nav-item"><Link class="nav-link" to="/login">Login</Link></li>
                 </>
             )}
         </ul>
+        </div>
         <Route path="/" exact render={(props)=>{
             return <Home {...props} userLoggeIn={userLoggeIn}/>
         }}/>

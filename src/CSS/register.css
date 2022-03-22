@@ -1,0 +1,12 @@
+.Register-form {
+    margin:auto; display:flex; flex-direction:column; width:30%
+}
+
+@media only screen and (max-width: 600px) {
+    .Register-form {
+        width: 90%;
+        position: absolute;
+        margin-left: 8px;
+        margin-top: 32px
+    }
+  }

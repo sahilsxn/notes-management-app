@@ -1,0 +1,19 @@
+.NoteItem {
+    background-color: #F5F5F5;
+    padding: 16px;
+    margin: 16px;
+    border-radius: 16px;
+}
+
+@media only screen and (max-width: 600px) {
+    .NoteItem {
+        background-color: #F5F5F5;
+        padding: 16px;
+        margin: 16px;
+        border-radius: 16px;
+        text-align: center;
+        width: 92%;
+        position: relative;
+        margin-left: 8px;
+    }
+  }

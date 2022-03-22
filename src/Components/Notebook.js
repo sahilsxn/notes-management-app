@@ -2,6 +2,8 @@ import {React, useState, useEffect} from "react";
 import NoteForm from './NoteForm'
 import NotesList from './NotesList'
 import axios from '../config/axios';
+import '../CSS/noteBook.css'
+
 
 const NoteBook = (props) => {
 
@@ -83,9 +85,9 @@ const NoteBook = (props) => {
     }
 
     return (
-        <div>
-            <h1>Signed In - My Notes</h1>
+        <div className="NoteBook">
             <NoteForm title={title} body={body} handleChange={handleChange} handleSubmit={handleSubmit} formErrors={formErrors}/>
+            <h1>Saved Notes</h1>
             <NotesList notesList={notesList} removeItem={removeItem}/>
         </div>
     )

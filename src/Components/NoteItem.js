@@ -1,6 +1,7 @@
 import {React} from 'react'
 import axios from '../config/axios'
 import Swal from 'sweetalert2'
+import '../CSS/noteItem.css'
 
 const NotesItem = (props) => {
 
@@ -48,11 +49,10 @@ const NotesItem = (props) => {
     }
 
     return (
-        <div>
+        <div className='NoteItem'>
             <h2 onClick={handleTitleClick}>{noteTitle}</h2>
             <p>{noteBody}</p>
-            <button onClick={handleDelete}>Delete</button>
-            <hr/>
+            <button class="btn btn-outline-danger btn-sm" onClick={handleDelete}>Delete</button>
         </div>
     )
 }

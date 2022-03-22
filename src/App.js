@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import NavBar from './Components/NavBar';
+import './App.css'
 
 const App = () => {
 
@@ -17,8 +18,8 @@ const App = () => {
   },[])
   
   return (
-    <div>
-      <h1>User Auth</h1>
+    <div className='App'>
+      <h1 style={{width:'max-content'}}>Quick Notes</h1>
       <NavBar userLoggeIn={userLoggeIn} handleAuth={handleAuth}/>
     </div>
   )

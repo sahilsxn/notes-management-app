@@ -1,0 +1,9 @@
+.NoteBook {
+margin-top: 16px;
+}
+
+@media only screen and (max-width: 600px) {
+    .NoteBook {
+        text-align: center;
+    }
+  }

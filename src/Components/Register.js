@@ -1,6 +1,7 @@
 import {React, useState} from "react";
 import axios from '../config/axios'
 import validator from 'validator';
+import '../CSS/register.css'
 
 const Register = (props) => {
     
@@ -75,34 +76,54 @@ const Register = (props) => {
     }
 
     return (
-        <div>
-            <h2>Register with Us</h2>
-            <form onSubmit={handleSubmit}>
-                <input 
-                    type="text" 
-                    name="username" 
-                    value={username} 
-                    onChange={handleChange} 
-                    placeholder="Enter Username"
-                    /> {formErrors.username && <span>{formErrors.username}</span>} <br/>
-                
-                <input 
-                    type="text" 
-                    name="email" 
-                    value={email} 
-                    onChange={handleChange} 
-                    placeholder="Enter Email"
-                    /> {formErrors.email && <span>{formErrors.email}</span>} <br/>
-                
-                <input 
-                    type="password" 
-                    name="password" 
-                    value={password} 
-                    onChange={handleChange} 
-                    placeholder="Enter Password"
-                    /> {formErrors.password && <span>{formErrors.password}</span>} <br/>
-                <input type="submit"/>
-            </form>
+        <div className="Register-form">
+            <div style={{borderStyle:'solid', borderRadius:'16px', borderColor:'#E6E6E6', padding:'16px', paddingBottom:'32px'}}>
+                <h2 style={{paddingBottom:'16px', textAlign: 'center'}}>Register with Us</h2>
+                <form onSubmit={handleSubmit}>
+                    <div class="form-floating mb-1">
+                    <input
+                        id="floatingInput"
+                        class="form-control"
+                        type="text" 
+                        name="username" 
+                        value={username} 
+                        onChange={handleChange} 
+                        placeholder="Enter Username"
+                        /> 
+                        <label for="floatingInput">Enter Username</label>
+                        {formErrors.username && <span>{formErrors.username}</span>} <br/>
+                    </div>
+                    <div class="form-floating mb-1">
+                    <input
+                        id="floatingInput"
+                        class="form-control"
+                        type="text" 
+                        name="email" 
+                        value={email} 
+                        onChange={handleChange} 
+                        placeholder="Enter Email"
+                        /> 
+                        <label for="floatingInput">Email Address</label>
+                        {formErrors.email && <span>{formErrors.email}</span>} <br/>
+                    </div>
+                    <div class="form-floating mb-1">
+                    <input 
+                        id="floatingPassword"
+                        class="form-control"
+                        type="password" 
+                        name="password" 
+                        value={password} 
+                        onChange={handleChange} 
+                        placeholder="Enter Password"
+                        /> 
+                        <label for="floatingPassword">Password</label>
+                        {formErrors.password && <span>{formErrors.password}</span>} <br/>
+                    </div>
+                    <div class="d-grid gap-2">
+                    <input class="btn btn-primary" type="submit"/>
+                    </div>
+                </form>
+            </div>
         </div>
     )
 }

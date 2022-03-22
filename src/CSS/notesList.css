@@ -1,0 +1,12 @@
+
+.NoteList{
+    width:60%;
+    margin:0;
+}
+
+@media only screen and (max-width: 600px) {
+    .NoteList {
+        width:100%;
+        text-align: center;
+    }
+  }

@@ -1,6 +1,7 @@
 import {React, useState} from "react";
 import validator from 'validator';
 import axios from '../config/axios'
+import '../CSS/login.css'
 
 const Login = (props) => {
     
@@ -67,30 +68,47 @@ const Login = (props) => {
     }
 
     return (
-        <div>
-            <h2>Login</h2>
-            <form onSubmit={handleSubmit}>
-                <input 
-                    type="text" 
-                    name="email" 
-                    value={email} 
-                    onChange={handleChange} 
-                    placeholder="Enter Email"
-                    /> {formErrors.email && <span>{formErrors.email}</span>} <br/>
-                
-                <input 
-                    type="password" 
-                    name="password" 
-                    value={password} 
-                    onChange={handleChange} 
-                    placeholder="Enter Password"
-                    /> {formErrors.password && <span>{formErrors.password}</span>} <br/>
-                <input type="submit"/>
-            </form>
-            <h3>Credentials</h3>
-            <p>Email - dct6543@gmail.com <button value="dct6543@gmail.com" onClick={handleCopy}>Copy</button></p>
-            
-            <p>secret123</p>
+         <div className="Login-form">
+            <div style={{borderStyle:'solid', borderRadius:'16px', borderColor:'#E6E6E6', padding:'16px', paddingBottom:'32px'}}>
+                <h2 style={{paddingBottom:'16px', textAlign: 'center'}}>Login</h2>
+                <form onSubmit={handleSubmit}>
+                    <div class="form-floating mb-1">
+                    <input
+                        id="floatingInput"
+                        class="form-control"
+                        type="text" 
+                        name="email" 
+                        value={email} 
+                        onChange={handleChange} 
+                        placeholder="Enter Email"
+                        /> 
+                        <label for="floatingInput">Email address</label>
+                        {formErrors.email && <span>{formErrors.email}</span>} <br/>
+                    </div>
+                    <div class="form-floating mb-1">
+                    <input
+                        id="floatingPassword"
+                        class="form-control"
+                        type="password" 
+                        name="password"
+                        value={password} 
+                        onChange={handleChange} 
+                        placeholder="Enter Password"
+                        /> 
+                        <label for="floatingPassword">Password</label>
+                        {formErrors.password && <span>{formErrors.password}</span>} <br/>
+                    </div>
+                    <div class="d-grid gap-2">
+                    <input class="btn btn-primary" type="submit"/>
+                    </div>
+                </form>
+            </div>
+                <div style={{textAlign:'center', marginTop:'32px', background:'#F5F5F5', padding:'16px', borderRadius:'12px'}}>
+                <h4>Credentials</h4>
+                <p><b>Email</b>: dct6543@gmail.com </p>
+                <button style={{marginBottom:'24px'}} class="btn btn-outline-primary" value="dct6543@gmail.com" onClick={handleCopy}>Copy</button>
+                <p><b>Password</b>: secret123</p>
+                </div>
         </div>
     )
 }
