@@ -4,9 +4,8 @@
 
 @media only screen and (max-width: 600px) {
     .Register-form {
-        width: 90%;
+        width: 100%;
         position: absolute;
-        margin-left: 8px;
         margin-top: 32px
     }
   }
